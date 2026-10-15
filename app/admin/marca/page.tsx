@@ -1,1 +1,10 @@
-export default function Page(){return <h1>Marca · pendiente de F3</h1>;}
+import { getTheme, getBackground } from "@/lib/data/settings";
+import BrandEditor from "./BrandEditor";
+export default function MarcaPage() {
+  return (
+    <BrandEditor
+      initialTheme={getTheme()}
+      initialBackground={getBackground()}
+    />
+  );
+}
