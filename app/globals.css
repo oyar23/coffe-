@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@config "../tailwind.config.ts";
+body {margin:0;background:var(--color-secondary);color:var(--color-text);font-family:var(--font-main)}
+a {color:var(--color-primary)}
+.admin-shell {display:flex;min-height:100vh}.admin-nav {padding:1.5rem;display:flex;gap:1rem;flex-direction:column}.admin-content {padding:1.5rem;flex:1;min-width:0}
+@media(max-width:767px){.admin-shell{flex-direction:column}.admin-nav{flex-direction:row;flex-wrap:wrap;padding:1rem}.admin-nav a{min-height:44px;display:flex;align-items:center}}

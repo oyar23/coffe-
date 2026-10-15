@@ -1,0 +1,38 @@
+{
+  "name": "coffe-a",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "db:push": "tsx scripts/migrate.ts",
+    "seed": "tsx scripts/seed.ts",
+    "import": "tsx scripts/import-catalog.ts",
+    "test": "tsx scripts/test-data.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "^15.5.28",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "better-sqlite3": "^12.0.0",
+    "drizzle-orm": "^0.45.4",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.0",
+    "tsx": "^4.19.0",
+    "tailwindcss": "^4.3.3",
+    "postcss": "^8.5.30",
+    "autoprefixer": "^10.4.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@types/better-sqlite3": "^7.6.0",
+    "@tailwindcss/postcss": "^4.3.3"
+  },
+  "overrides": {
+    "postcss": "$postcss"
+  }
+}

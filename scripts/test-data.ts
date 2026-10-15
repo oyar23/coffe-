@@ -1,0 +1,63 @@
+import assert from 'node:assert/strict';
+import {mkdtempSync,rmSync,mkdirSync,writeFileSync,readdirSync} from 'node:fs';
+import {spawnSync} from 'node:child_process';
+import {tmpdir} from 'node:os';
+import path from 'node:path';
+const dir=mkdtempSync(path.join(tmpdir(),'coffe-data-'));
+process.env.DATABASE_PATH=path.join(dir,'test.db');
+async function main(){
+ const {migrate}=await import('../lib/db/migrate');
+ const {sqlite}=await import('../lib/db');
+ try{
+ migrate();migrate();
+ const p=await import('../lib/data/products');
+ const s=await import('../lib/data/settings');
+ assert.deepEqual(s.getTheme(),s.defaultTheme);assert.deepEqual(s.getBackground(),s.defaultBackground);
+ assert.equal(p.listProducts().length,0);
+ const input={nombre:'Latte',categoria:'Cafés',precio:4500,imagen:'/placeholder.svg'};
+ const a=p.createProduct(input);assert.equal(a.disponible,true);assert.equal(a.descripcion,null);assert.ok(a.updated_at instanceof Date);
+ assert.equal(p.getProduct(a.id)?.nombre,'Latte');
+ const b=p.createProduct({...input,nombre:'Espresso',destacado:true,orden:10});
+ p.createProduct({...input,nombre:'Mocha',orden:2});
+ const hidden=p.createProduct({...input,categoria:'Fríos',disponible:false});
+ assert.equal(p.listProducts({soloDisponibles:true}).length,3);
+ assert.equal(p.listByCategory()[0].productos[0].id,b.id);
+ assert.equal(p.listByCategory()[0].productos[1].id,a.id);
+ assert.deepEqual(p.listCategories(),['Cafés','Fríos']);
+ assert.equal(p.updateProduct(a.id,{descripcion:'Nueva'}).descripcion,'Nueva');
+ assert.equal(p.updatePrice(a.id,5000).precio,5000);
+ assert.equal(p.togglePromo(a.id,4000,'Oferta').precio_promo,4000);
+ assert.throws(()=>p.updatePrice(a.id,3500));assert.equal(p.getProduct(a.id)?.precio,5000);
+ assert.throws(()=>p.togglePromo(a.id,6000));
+ assert.equal(p.togglePromo(a.id,null).etiqueta_promo,null);
+ assert.equal(p.toggleDisponible(hidden.id).disponible,true);
+ assert.throws(()=>p.createProduct({...input,precio:0}));
+ assert.throws(()=>p.createProduct({...input,precio:1.5}));
+ assert.throws(()=>p.updateProduct('missing',{nombre:'Otro'}));
+ assert.throws(()=>p.toggleDisponible('missing'));
+ assert.equal(p.deleteProduct(b.id),true);assert.equal(p.deleteProduct(b.id),false);assert.equal(p.getProduct(b.id),undefined);
+ const theme={...s.defaultTheme,primary:'#123456'};assert.deepEqual(s.setTheme(theme),theme);assert.deepEqual(s.getTheme(),theme);
+ for(const type of ['image','video','lottie','component'] as const){const bg={type,src:'/test',overlay:0.6};assert.deepEqual(s.setBackground(bg),bg);assert.deepEqual(s.getBackground(),bg);}
+ assert.throws(()=>s.setBackground({...s.defaultBackground,overlay:2}));
+ assert.throws(()=>s.setTheme({...theme,primary:'bad'}));
+ sqlite.prepare('UPDATE settings SET value=? WHERE key=?').run('bad JSON','theme');assert.deepEqual(s.getTheme(),s.defaultTheme);
+ assert.equal(p.clearProducts(),3);assert.equal(p.listProducts().length,0);
+ // Importador real: fixture aislado, copia, reporte y reset cancelado ante error.
+ const fixtures=path.join(dir,'scraper-output');mkdirSync(path.join(fixtures,'imagenes'),{recursive:true});
+ writeFileSync(path.join(fixtures,'imagenes','test.png'),Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aP1sAAAAASUVORK5CYII=','base64'));
+ const catalog=path.join(fixtures,'catalogo.json');
+ const valid={nombre:'Importado',categoria:'Test',precio:2000,imagen:'imagenes/test.png'};
+ const runImport=(...args:string[])=>spawnSync(process.execPath,[path.resolve('node_modules/tsx/dist/cli.mjs'),path.resolve('scripts/import-catalog.ts'),...args],{cwd:dir,env:process.env,encoding:'utf8'});
+ writeFileSync(catalog,JSON.stringify([valid]));
+ const imported=runImport('--reset');assert.equal(imported.status,0,imported.stdout+imported.stderr);
+ assert.equal(p.listProducts().length,1);assert.equal(readdirSync(path.join(dir,'public/uploads')).length,1);
+ writeFileSync(catalog,JSON.stringify([valid,{...valid,precio:0}]));
+ const refused=runImport('--reset');assert.equal(refused.status,1);assert.equal(p.listProducts().length,1);
+ const partial=runImport();assert.equal(partial.status,1);assert.equal(p.listProducts().length,2);
+ assert.match(partial.stdout,/Importados: 1. Fallidos: 1/);
+ writeFileSync(catalog,JSON.stringify([{...valid,imagen:'../test.db'}]));
+ assert.equal(runImport().status,1);assert.equal(p.listProducts().length,2);
+ console.log('OK: todas las funciones lib/data, validación, defaults, orden y migración idempotente. DB de demo intacta.');
+ }finally{sqlite.close();rmSync(dir,{recursive:true,force:true});}
+}
+main().catch(error=>{console.error(error);process.exitCode=1;});

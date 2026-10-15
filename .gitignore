@@ -1,0 +1,10 @@
+node_modules/
+.next/
+out/
+data/*
+!data/.gitkeep
+public/uploads/*
+!public/uploads/.gitkeep
+*.tsbuildinfo
+.env*
+!.env.example
