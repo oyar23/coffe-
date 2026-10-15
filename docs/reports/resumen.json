@@ -1,0 +1,36 @@
+{
+  "mobile": {
+    "width": 375,
+    "scores": {
+      "performance": 85,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "lighthouseVersion": "12.8.2",
+    "fetchTime": "2026-10-15T19:50:16.704Z",
+    "metrics": {
+      "first-contentful-paint": 1013.031,
+      "largest-contentful-paint": 2236.062,
+      "total-blocking-time": 525.5,
+      "cumulative-layout-shift": 0
+    }
+  },
+  "desktop": {
+    "width": 1280,
+    "scores": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "lighthouseVersion": "12.8.2",
+    "fetchTime": "2026-10-15T19:51:35.536Z",
+    "metrics": {
+      "first-contentful-paint": 287.1953,
+      "largest-contentful-paint": 559.1953000000001,
+      "total-blocking-time": 38.201175000000035,
+      "cumulative-layout-shift": 0
+    }
+  }
+}
