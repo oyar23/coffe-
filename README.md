@@ -38,3 +38,7 @@ Copia imágenes locales jpg/jpeg/png/webp/avif/gif a `/uploads/<uuid>.<ext>`, va
 Las funciones son **sincrónicas**, solo para servidor Node. Importarlas desde Server Components/Server Actions; no desde componentes cliente. Las mutaciones devuelven el producto guardado y lanzan errores ante datos inválidos o ID inexistente. Las Server Actions de F2/F3 deben llamar a `revalidatePath('/')` y las rutas del admin afectadas. Layout dinámico para leer cambios de tema al recargar.
 
 Ver [F0-CONTRACTS.md](F0-CONTRACTS.md) para firmas y decisiones. Los tipos de formulario están en `lib/validation/product.ts` y no dependen de SQLite. Toda operación de productos/settings pasa por `lib/data/`; scripts de infraestructura y migraciones usan `lib/db/`.
+
+## Muestra de productos del Excel
+
+Para cargar los 24 productos seleccionados de `datos/precios.xlsx` en lugar de los datos ficticios: `npm run db:push` y `npm run import:sample`. El importador hace backup y conserva tema/fondo. Ver [selección y categorías](docs/catalogo-muestra.md).

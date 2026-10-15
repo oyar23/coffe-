@@ -7,20 +7,10 @@
 .menu * { box-sizing: border-box; }
 .skipLink { position: fixed; top: -100px; left: 16px; z-index: 10; padding: 14px 20px; background: var(--color-secondary); color: var(--color-text); }
 .skipLink:focus { top: 12px; }
-.header { max-width: 1160px; margin: auto; padding: 28px 32px; display: flex; align-items: center; justify-content: space-between; gap: 20px; border-bottom: 1px solid var(--menu-line); }
+.header { max-width: 1160px; margin: auto; padding: 20px 32px; display: flex; align-items: center; justify-content: space-between; gap: 20px; border-bottom: 1px solid var(--menu-line); }
 .brand { display: flex; gap: 13px; align-items: center; text-decoration: none; color: var(--color-primary); }
 .logo { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
 .wordmark { font-size: 30px; font-weight: 700; letter-spacing: -1.6px; line-height: 1; }
-.brandCaption { display: block; font-size: 8px; letter-spacing: 1.8px; font-weight: 500; margin-top: 9px; }
-.headerNote { font-size: 11px; letter-spacing: .07em; display: flex; align-items: center; gap: 8px; color: var(--menu-muted); }
-.dot { width: 6px; height: 6px; background: var(--color-primary); border-radius: 50%; }
-.hero { max-width: 1160px; margin: auto; padding: 58px 32px 52px; display: flex; justify-content: space-between; align-items: center; gap: 32px; }
-.eyebrow { font-size: 10px; letter-spacing: .2em; font-weight: 600; color: var(--color-primary); margin: 0 0 18px; }
-.hero h1 { font-size: clamp(44px, 6vw, 74px); line-height: 1.03; letter-spacing: -.06em; font-weight: 500; margin: 0; }
-.hero h1 span { color: var(--color-primary); }
-.intro { font-size: 14px; line-height: 1.7; margin: 22px 0 0; color: var(--menu-muted); }
-.heroStamp { width: 164px; height: 164px; border: 1px solid var(--menu-line); border-radius: 50%; display: flex; flex-shrink: 0; align-items: center; justify-content: center; flex-direction: column; gap: 14px; color: var(--color-primary); transform: rotate(9deg); margin-right: 38px; }
-.heroStamp span { text-align: center; font-size: 8px; letter-spacing: .12em; line-height: 1.7; }
 .categoryNav { position: sticky; top: 0; z-index: 5; border-top: 1px solid var(--menu-line); border-bottom: 1px solid var(--menu-line); background: var(--color-secondary); }
 .categoryRail { display: flex; position: relative; max-width: 1160px; margin: auto; padding: 14px 32px; gap: 8px; overflow-x: auto; scrollbar-width: thin; scrollbar-color: var(--color-primary) var(--color-secondary); }
 .categoryChip { min-height: 44px; display: inline-flex; flex-shrink: 0; align-items: center; padding: 10px 20px; text-decoration: none; font-size: 13px; font-weight: 500; color: var(--color-text); border: 1px solid var(--menu-line); border-radius: 100px; transition: background .2s, color .2s; }
@@ -30,10 +20,7 @@
 .content { max-width: 1160px; margin: auto; padding: 8px 32px 64px; }
 .section { scroll-margin-top: 100px; padding-top: 40px; }
 .sectionHeader { display: flex; justify-content: space-between; align-items: center; gap: 14px; margin-bottom: 20px; }
-.sectionTitle { display: flex; align-items: baseline; gap: 14px; }
-.sectionNumber { font-size: 12px; color: var(--color-primary); font-variant-numeric: tabular-nums; }
-.sectionTitle h2 { margin: 0; font-size: 26px; font-weight: 500; letter-spacing: -.04em; }
-.sectionCount { font-size: 12px; color: var(--menu-muted); white-space: nowrap; }
+.sectionHeader h2 { margin: 0; font-size: 26px; font-weight: 500; letter-spacing: -.04em; }
 .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
 .card { height: 100%; min-height: 164px; display: flex; overflow: hidden; border: 1px solid var(--menu-line); background: var(--color-secondary); border-radius: 12px; }
 .featured { border-color: color-mix(in srgb, var(--color-primary) 65%, var(--color-secondary)); }
@@ -55,28 +42,18 @@
 .empty h2 { font-size: 28px; letter-spacing: -.04em; }
 .empty p { color: var(--menu-muted); line-height: 1.7; }
 .footer { max-width: 1096px; margin: auto; padding: 32px 0 38px; border-top: 1px solid var(--menu-line); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; }
-.footerBrand { color: var(--color-primary); font-size: 23px; letter-spacing: -1px; font-weight: 700; }
-.footer p { color: var(--menu-muted); font-size: 12px; margin: 0; }
 .footerNote { color: var(--menu-muted); font-size: 12px; }
 .reveal { min-width: 0; }
 @keyframes enter { from { opacity: .35; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 @media (prefers-reduced-motion: no-preference) { .reveal[data-revealed='true'] { animation: enter .45s ease-out both; } }
 @media (max-width: 767px) {
-  .header { padding: 22px 20px; }
-  .headerNote { font-size: 9px; letter-spacing: 0; max-width: 80px; line-height: 1.5; }
-  .brandCaption { font-size: 7px; letter-spacing: 1.2px; }
+  .header { padding: 16px 20px; }
   .wordmark { font-size: 27px; }
-  .hero { padding: 38px 20px 34px; }
-  .heroStamp { display: none; }
-  .hero h1 { font-size: 52px; }
-  .eyebrow { font-size: 10px; letter-spacing: .15em; }
-  .intro { font-size: 14px; max-width: 270px; margin-top: 18px; }
   .categoryRail { padding: 12px 20px; }
   .categoryChip { padding: 10px 16px; font-size: 13px; }
   .content { padding: 4px 20px 44px; }
   .section { padding-top: 30px; }
-  .sectionTitle { gap: 10px; }
-  .sectionTitle h2 { font-size: 23px; }
+  .sectionHeader h2 { font-size: 23px; }
   .sectionHeader { margin-bottom: 16px; }
   .grid { grid-template-columns: minmax(0, 1fr); gap: 12px; }
   .productImage { width: 104px; min-height: 148px; }
@@ -93,3 +70,5 @@
 
 .textOnly { min-height: 148px; }
 .textSoldOut { align-self: flex-start; font-size: 11px; padding: 4px 8px; border: 1px solid var(--menu-line); border-radius: 4px; margin-bottom: 8px; color: var(--color-text); }
+
+.srOnly { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }

@@ -1,0 +1,375 @@
+{
+  "origen": {
+    "archivo": "../datos/precios.xlsx",
+    "hoja": "Hoja1",
+    "columnas": {
+      "nombre": "C",
+      "descripcion": "D",
+      "precio_actual": "E",
+      "precio_anterior": "F",
+      "mas_vendido": "H"
+    }
+  },
+  "seleccion": [
+    {
+      "fila": 27,
+      "producto": {
+        "nombre": "Café del día con leche",
+        "descripcion": "Nuestras mezclas únicas de café en granos preparadas en sistema de filtrado, con una capa de leche vaporizada.",
+        "categoria": "Cafés calientes",
+        "precio": 9000,
+        "precio_promo": null,
+        "etiqueta_promo": null,
+        "imagen": "/placeholder.svg",
+        "disponible": true,
+        "destacado": true,
+        "orden": 0
+      }
+    },
+    {
+      "fila": 28,
+      "producto": {
+        "nombre": "Caramel Macchiato",
+        "descripcion": "Vainilla y leche manchada con espresso, mezclada con caramelo.",
+        "categoria": "Cafés calientes",
+        "precio": 11300,
+        "precio_promo": null,
+        "etiqueta_promo": null,
+        "imagen": "/placeholder.svg",
+        "disponible": true,
+        "destacado": true,
+        "orden": 1
+      }
+    },
+    {
+      "fila": 31,
+      "producto": {
+        "nombre": "Flat White",
+        "descripcion": "Shots de café ristretto combinados con leche vaporizada que finaliza con un punto dibujado en la superficie.",
+        "categoria": "Cafés calientes",
+        "precio": 9500,
+        "precio_promo": null,
+        "etiqueta_promo": null,
+        "imagen": "/placeholder.svg",
+        "disponible": true,
+        "destacado": true,
+        "orden": 2
+      }
+    },
+    {
+      "fila": 32,
+      "producto": {
+        "nombre": "Latte",
+        "descripcion": "Combinación de café espresso con leche vaporizada.",
+        "categoria": "Cafés calientes",
+        "precio": 9300,
+        "precio_promo": null,
+        "etiqueta_promo": null,
+        "imagen": "/placeholder.svg",
+        "disponible": true,
+        "destacado": true,
+        "orden": 3
+      }
+    },
+    {
+      "fila": 36,
+      "producto": {
+        "nombre": "Vainilla Latte",
+        "descripcion": "Delicioso café espresso con leche al vapor y dulces toques de vainilla.",
+        "categoria": "Cafés calientes",
+        "precio": 10200,
+        "precio_promo": 8300,
+        "etiqueta_promo": "Oferta",
+        "imagen": "/placeholder.svg",
+        "disponible": true,
+        "destacado": true,
+        "orden": 4
+      }
+    },
+    {
+      "fila": 37,
+      "producto": {
+        "nombre": "Americano Helado",
+        "descripcion": "Delicioso café espresso combinado con agua y hielo, al mejor estilo americano",
+        "categoria": "Cafés fríos",
+        "precio": 8500,
+        "precio_promo": null,
+        "etiqueta_promo": null,
+        "imagen": "/placeholder.svg",
+        "disponible": true,
+        "destacado": false,
+        "orden": 0
+      }
+    },
+    {
+      "fila": 39,
+      "producto": {
+        "nombre": "Caramel Macchiato Helado",
+        "descripcion": "Hielo, vainilla y leche manchada con espresso, finalizada con el característico dibujo de caramelo",
+        "categoria": "Cafés fríos",
+        "precio": 11300,
+        "precio_promo": 9200,
+        "etiqueta_promo": "Oferta",
+        "imagen": "/placeholder.svg",
+        "disponible": true,
+        "destacado": false,
+        "orden": 1
+      }
+    },
+    {
+      "fila": 41,
+      "producto": {
+        "nombre": "Latte Helado",
+        "descripcion": "Deliciosa combinación de café espresso con hielo y leche",
+        "categoria": "Cafés fríos",
+        "precio": 9300,
+        "precio_promo": null,
+        "etiqueta_promo": null,
+        "imagen": "/placeholder.svg",
+        "disponible": true,
+        "destacado": false,
+        "orden": 2
+      }
+    },
+    {
+      "fila": 47,
+      "producto": {
+        "nombre": "Cold Brew",
+        "descripcion": "Bebida helada a base de granos de café colombianos infusionados por veinte horas.",
+        "categoria": "Cafés fríos",
+        "precio": 10500,
+        "precio_promo": null,
+        "etiqueta_promo": null,
+        "imagen": "/placeholder.svg",
+        "disponible": true,
+        "destacado": false,
+        "orden": 3
+      }
+    },
+    {
+      "fila": 50,
+      "producto": {
+        "nombre": "Chai Latte",
+        "descripcion": "Nuestro mezcla de té chai y leche perfectamente vaporizada, decorado con una sutil capa de espuma de leche.",
+        "categoria": "Bebidas sin café",
+        "precio": 10600,
+        "precio_promo": null,
+        "etiqueta_promo": null,
+        "imagen": "/placeholder.svg",
+        "disponible": true,
+        "destacado": false,
+        "orden": 0
+      }
+    },
+    {
+      "fila": 52,
+      "producto": {
+        "nombre": "Chocolate Caliente",
+        "descripcion": "Salsa de chocolate y leche al vapor (Bebida sin crema batida).",
+        "categoria": "Bebidas sin café",
+        "precio": 9800,
+        "precio_promo": null,
+        "etiqueta_promo": null,
+        "imagen": "/placeholder.svg",
+        "disponible": true,
+        "destacado": false,
+        "orden": 1
+      }
+    },
+    {
+      "fila": 56,
+      "producto": {
+        "nombre": "Jugo de Naranja",
+        "descripcion": "Jugo de naranja 300ml.",
+        "categoria": "Bebidas sin café",
+        "precio": 4900,
+        "precio_promo": null,
+        "etiqueta_promo": null,
+        "imagen": "/placeholder.svg",
+        "disponible": true,
+        "destacado": false,
+        "orden": 2
+      }
+    },
+    {
+      "fila": 58,
+      "producto": {
+        "nombre": "Matcha Latte",
+        "descripcion": "Mezcla de té matcha con leche perfectamente vaporizada.",
+        "categoria": "Bebidas sin café",
+        "precio": 10600,
+        "precio_promo": null,
+        "etiqueta_promo": null,
+        "imagen": "/placeholder.svg",
+        "disponible": true,
+        "destacado": false,
+        "orden": 3
+      }
+    },
+    {
+      "fila": 19,
+      "producto": {
+        "nombre": "Flat White + 2 Mezzalunas",
+        "descripcion": "Flat White preparado con café espresso y leche vaporizada, acompañado de dos mezzalunas suaves y doradas para un momento perfecto.",
+        "categoria": "Desayunos y meriendas",
+        "precio": 18300,
+        "precio_promo": 11895,
+        "etiqueta_promo": "Oferta",
+        "imagen": "/placeholder.svg",
+        "disponible": true,
+        "destacado": false,
+        "orden": 0
+      }
+    },
+    {
+      "fila": 20,
+      "producto": {
+        "nombre": "Latte + Mezzaluna Rellena",
+        "descripcion": "Dueto perfecto para alegrar tus mañanas, nuestro Latte tamaño Grande acompañado de una Medialuna Rellena de jamón y queso.",
+        "categoria": "Desayunos y meriendas",
+        "precio": 17700,
+        "precio_promo": 12390,
+        "etiqueta_promo": "Oferta",
+        "imagen": "/placeholder.svg",
+        "disponible": true,
+        "destacado": false,
+        "orden": 1
+      }
+    },
+    {
+      "fila": 77,
+      "producto": {
+        "nombre": "Chocolate Croissant",
+        "descripcion": "Exquisita masa de hojaldre rellena de chocolate semiamargo.",
+        "categoria": "Pastelería",
+        "precio": 9100,
+        "precio_promo": null,
+        "etiqueta_promo": null,
+        "imagen": "/placeholder.svg",
+        "disponible": true,
+        "destacado": true,
+        "orden": 0
+      }
+    },
+    {
+      "fila": 78,
+      "producto": {
+        "nombre": "Croissant",
+        "descripcion": "Croissant con masa de hojaldre.",
+        "categoria": "Pastelería",
+        "precio": 5800,
+        "precio_promo": null,
+        "etiqueta_promo": null,
+        "imagen": "/placeholder.svg",
+        "disponible": true,
+        "destacado": false,
+        "orden": 1
+      }
+    },
+    {
+      "fila": 81,
+      "producto": {
+        "nombre": "Lemon Pound Cake",
+        "descripcion": "Exquisito cake de limón, bañado con un glaseado dulce y cítrico.",
+        "categoria": "Pastelería",
+        "precio": 8200,
+        "precio_promo": null,
+        "etiqueta_promo": null,
+        "imagen": "/placeholder.svg",
+        "disponible": true,
+        "destacado": false,
+        "orden": 2
+      }
+    },
+    {
+      "fila": 83,
+      "producto": {
+        "nombre": "Mezzaluna",
+        "descripcion": "La clásica medialuna reversionada a la manera de coffe-a: Crujiente, esponjosa y de mayor tamaño.",
+        "categoria": "Pastelería",
+        "precio": 4400,
+        "precio_promo": null,
+        "etiqueta_promo": null,
+        "imagen": "/placeholder.svg",
+        "disponible": true,
+        "destacado": false,
+        "orden": 3
+      }
+    },
+    {
+      "fila": 86,
+      "producto": {
+        "nombre": "Roll de Canela",
+        "descripcion": "Anillo de suave masa horneada relleno con canela.",
+        "categoria": "Pastelería",
+        "precio": 9500,
+        "precio_promo": null,
+        "etiqueta_promo": null,
+        "imagen": "/placeholder.svg",
+        "disponible": true,
+        "destacado": false,
+        "orden": 4
+      }
+    },
+    {
+      "fila": 79,
+      "producto": {
+        "nombre": "Croissant con Queso y Palta",
+        "descripcion": "Croissant integral relleno con queso y palta, una combinación cremosa y sabrosa ideal para cualquier momento del día.",
+        "categoria": "Salados",
+        "precio": 7500,
+        "precio_promo": null,
+        "etiqueta_promo": null,
+        "imagen": "/placeholder.svg",
+        "disponible": true,
+        "destacado": true,
+        "orden": 0
+      }
+    },
+    {
+      "fila": 88,
+      "producto": {
+        "nombre": "Scon Cuatro Quesos",
+        "descripcion": "Queso pategrás, sardo, reggiano y holanda se combinan en una esponjosa masa tibia.",
+        "categoria": "Salados",
+        "precio": 10400,
+        "precio_promo": null,
+        "etiqueta_promo": null,
+        "imagen": "/placeholder.svg",
+        "disponible": true,
+        "destacado": false,
+        "orden": 1
+      }
+    },
+    {
+      "fila": 92,
+      "producto": {
+        "nombre": "Bagel Sándwich",
+        "descripcion": "Exquisito bagel multicereal combinado con queso cheddar, panceta y huevo.",
+        "categoria": "Salados",
+        "precio": 16800,
+        "precio_promo": null,
+        "etiqueta_promo": null,
+        "imagen": "/placeholder.svg",
+        "disponible": true,
+        "destacado": false,
+        "orden": 2
+      }
+    },
+    {
+      "fila": 95,
+      "producto": {
+        "nombre": "Ciabatta Jamón y Queso",
+        "descripcion": "Tostado de jamón y queso en pan ciabatta",
+        "categoria": "Salados",
+        "precio": 14900,
+        "precio_promo": null,
+        "etiqueta_promo": null,
+        "imagen": "/placeholder.svg",
+        "disponible": true,
+        "destacado": false,
+        "orden": 3
+      }
+    }
+  ]
+}
