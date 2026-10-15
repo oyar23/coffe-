@@ -15,11 +15,11 @@ async function upload(
 ) {
   const form = new FormData();
   form.set("kind", kind);
-  form.set("file", new File([bytes], `example`, { type: mime }));
+  form.set("file", new File([new Uint8Array(bytes)], `example`, { type: mime }));
   if (poster)
     form.set(
       "poster",
-      new File([poster], "poster.jpg", { type: "image/jpeg" }),
+      new File([new Uint8Array(poster)], "poster.jpg", { type: "image/jpeg" }),
     );
   const response = await POST(
     new Request(`${base}/admin/marca/upload`, {
