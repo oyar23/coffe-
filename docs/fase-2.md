@@ -44,7 +44,7 @@ Se persiste como JSON en settings, clave `menu_display`. No requiere migrar la b
 
 ## Datos reales y fondos
 
-El Excel y los diseños de fondo no se encontraron entre los archivos del proyecto. Su incorporación está pendiente de que el usuario indique sus rutas. No se importaron datos ni se sustituyeron los productos de demo. Los fondos y personalización de marca corresponden a F3; `/admin/marca` sigue como stub de esa fase.
+El Excel y los diseños de fondo no se encontraron entre los archivos del proyecto. Su incorporación está pendiente de que el usuario indique sus rutas. No se importaron datos ni se sustituyeron los productos de demo. Los fondos y personalización de marca corresponden a F3. Durante la integración se detectó que otra sesión ya había incorporado F3 a main (`a82ff1b`); se conservaron esos cambios y se verificó el build combinado. Los diseños reales del usuario siguen pendientes de ruta.
 
 ## Verificación
 
@@ -59,6 +59,7 @@ Para repetir el smoke, arrancar una instancia de producción con una base de pru
 
 ```powershell
 $env:DATABASE_PATH = 'data/f2-test.db'
+npm.cmd ci --prefix components/background --legacy-peer-deps # dependencia local de F3
 npm run db:push
 npm run seed
 npm run build
@@ -81,3 +82,9 @@ Las pruebas HTTP comprueban persistencia y render de servidor; no equivalen a cl
 ### Formulario desktop · 1280 px
 
 ![Formulario de producto](reports/f2-form-desktop-1280.jpg)
+
+## Integración concurrente con F3
+
+Se mantuvo F3 sin sobrescribir sus archivos. Su editor puede subir logos mediante el nuevo `/api/upload`, que devuelve `path`; los fondos mantienen su endpoint propio. Para instalar desde cero hay que ejecutar también `npm.cmd ci --prefix components/background --legacy-peer-deps`, según la documentación de F3. Las capturas de F2 se tomaron antes de combinar las ramas, con el tema seed de F0.
+
+Verificación combinada F2 + F3: build aprobado; smoke HTTP de productos/fotos aprobado; smoke HTTP de marca (tres presets y cuatro tipos de fondo) aprobado; validación de uploads/video/poster/rangos y Lottie de F3 aprobada (2 tests). Sin modificar datos del proyecto principal: estas mutaciones se ejecutaron en la base del worktree de prueba.
