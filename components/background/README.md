@@ -43,6 +43,10 @@ ffmpeg -i original.mov -vf "scale=1280:720:force_original_aspect_ratio=decrease,
 
 ## Preview y persistencia
 
+Los fondos de tipo imagen ahora tienen un movimiento suave de zoom y desplazamiento, en un ciclo CSS de 26 segundos. `ImageBackground.tsx` pausa la animación si la pestaña está oculta y la desactiva con `prefers-reduced-motion`. No se genera un MP4: la animación forma parte de la web. No afecta al poster estático de los fondos de video.
+
+El diseño compartido mediante la biblioteca de ChatGPT está pendiente de recibir como archivo: el enlace enviado requiere iniciar sesión y no permitió descargarlo. Para incluirlo en el repositorio y futuro deploy, guardarlo en `public/backgrounds/` y seleccionarlo como imagen en Marca. Si se sube desde el admin queda en `public/uploads/`, que está excluido de Git, por lo que se debe transferir por separado al hosting junto con la base local. La configuración activa se guarda en SQLite; no basta con copiar solo los archivos de código.
+
 Los presets aplican tema y fondo juntos al borrador y conservan el logo. El iframe recibe el borrador por postMessage del mismo origen; no cambia SQLite. Guardar llama a `setTheme`, `setBackground` y `revalidatePath('/')`, y recarga el iframe. En mobile las pestañas permiten alternar entre edición y preview; en desktop se muestran lado a lado. Los uploads usan `/api/upload` para el logo si existe; ante 404 usan el endpoint propio. Fondos y poster se suben al endpoint propio, con validación específica. Las rutas de media sirven archivos agregados después del build y soportan rangos de video.
 
 ## Ejemplos y verificación

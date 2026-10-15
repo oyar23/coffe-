@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import type { Background as Config } from "@/lib/data/settings";
 import { registry } from "./registry";
 import { fontStylesheet } from "./fonts";
+import ImageBackground from "./ImageBackground";
 import styles from "./background.module.css";
 const Video = dynamic(() => import("./VideoBackground"), { ssr: false });
 const Lottie = dynamic(() => import("./LottieBackground"), { ssr: false });
@@ -45,14 +46,7 @@ export default function Background({
     <>
       <link rel="stylesheet" href={fontStylesheet} />
       <div aria-hidden="true" className={styles.root}>
-        {background.type === "image" && (
-          <div
-            className={styles.cover}
-            style={{
-              backgroundImage: `url(${JSON.stringify(background.src)})`,
-            }}
-          />
-        )}
+        {background.type === "image" && <ImageBackground src={background.src} />}
         {background.type === "video" && <Video src={background.src} />}
         {background.type === "lottie" && <Lottie src={background.src} />}
         {Component && <Component />}

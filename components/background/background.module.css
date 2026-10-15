@@ -17,6 +17,15 @@
   background-size: cover;
   background-position: center;
 }
+.animatedImage {
+  inset: -3%;
+  animation: imageDrift 26s ease-in-out infinite alternate;
+  will-change: transform;
+}
+@keyframes imageDrift {
+  from { transform: translate3d(-.5%, -.4%, 0) scale(1.02); }
+  to { transform: translate3d(.5%, .4%, 0) scale(1.06); }
+}
 .overlay {
   background: #000;
 }
@@ -42,6 +51,12 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  .animatedImage {
+    animation: none;
+    transform: none;
+    inset: 0;
+    will-change: auto;
+  }
   .gradient {
     animation: none;
     will-change: auto;

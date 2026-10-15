@@ -11,6 +11,8 @@
 .brand { display: flex; gap: 13px; align-items: center; text-decoration: none; color: var(--color-primary); }
 .logo { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
 .wordmark { font-size: 30px; font-weight: 700; letter-spacing: -1.6px; line-height: 1; }
+.welcome { max-width: 1160px; margin: 0 auto; padding: 24px 32px; display: flex; align-items: center; flex-wrap: wrap; gap: 12px 20px; font-size: 28px; font-weight: 500; letter-spacing: -.04em; }
+.welcomePromo { display: inline-block; background: var(--color-primary); color: var(--color-secondary); padding: 9px 13px; border-radius: 100px; font-size: 13px; font-weight: 500; letter-spacing: 0; line-height: 1.4; }
 .categoryNav { position: sticky; top: 0; z-index: 5; border-top: 1px solid var(--menu-line); border-bottom: 1px solid var(--menu-line); background: var(--color-secondary); }
 .categoryRail { display: flex; position: relative; max-width: 1160px; margin: auto; padding: 14px 32px; gap: 8px; overflow-x: auto; scrollbar-width: thin; scrollbar-color: var(--color-primary) var(--color-secondary); }
 .categoryChip { min-height: 44px; display: inline-flex; flex-shrink: 0; align-items: center; padding: 10px 20px; text-decoration: none; font-size: 13px; font-weight: 500; color: var(--color-text); border: 1px solid var(--menu-line); border-radius: 100px; transition: background .2s, color .2s; }
@@ -49,6 +51,8 @@
 @media (max-width: 767px) {
   .header { padding: 16px 20px; }
   .wordmark { font-size: 27px; }
+  .welcome { padding: 20px; gap: 10px 14px; font-size: 24px; }
+  .welcomePromo { font-size: 12px; padding: 8px 12px; }
   .categoryRail { padding: 12px 20px; }
   .categoryChip { padding: 10px 16px; font-size: 13px; }
   .content { padding: 4px 20px 44px; }

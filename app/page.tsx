@@ -32,6 +32,11 @@ export default function MenuPage() {
         </a>
       </header>
 
+      <p className={styles.welcome}>
+        <span>Bienvenido</span>
+        <span className={styles.welcomePromo}>2×1 de 15 a 22 hs</span>
+      </p>
+
       {sections.length > 0 && <CategoryTabs categories={sections.map(({ id, categoria }) => ({ id, nombre: categoria }))} />}
 
       <main id="carta" className={styles.content}>
