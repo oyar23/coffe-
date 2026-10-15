@@ -11,7 +11,9 @@
     "import": "tsx scripts/import-catalog.ts",
     "test": "tsx scripts/test-data.ts",
     "typecheck": "tsc --noEmit",
-    "import:sample": "tsx scripts/import-sample.ts"
+    "import:sample": "tsx scripts/import-sample.ts",
+    "build:demo": "node scripts/build-demo.mjs",
+    "demo:snapshot": "tsx scripts/snapshot-demo.ts"
   },
   "dependencies": {
     "better-sqlite3": "^12.0.0",

@@ -42,3 +42,7 @@ Ver [F0-CONTRACTS.md](F0-CONTRACTS.md) para firmas y decisiones. Los tipos de fo
 ## Muestra de productos del Excel
 
 Para cargar los 24 productos seleccionados de `datos/precios.xlsx` en lugar de los datos ficticios: `npm run db:push` y `npm run import:sample`. El importador hace backup y conserva tema/fondo. Ver [selección y categorías](docs/catalogo-muestra.md).
+
+## Muestra para una compradora
+
+La publicación en Vercel usa `npm run build:demo` y la configuración incluida en `vercel.json`. Muestra la carta sin depender de SQLite. Ver [pasos de publicación](docs/deploy-vercel.md).

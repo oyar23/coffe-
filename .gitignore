@@ -8,3 +8,7 @@ public/uploads/*
 *.tsbuildinfo
 .env*
 !.env.example
+
+.next-demo/
+
+.demo-build/
