@@ -90,3 +90,6 @@
   .footer { margin: 0 20px; padding-top: 26px; flex-direction: column; align-items: flex-start; gap: 10px; }
 }
 @media (prefers-reduced-motion: reduce) { .menu *, .menu *::before, .menu *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+
+.textOnly { min-height: 148px; }
+.textSoldOut { align-self: flex-start; font-size: 11px; padding: 4px 8px; border: 1px solid var(--menu-line); border-radius: 4px; margin-bottom: 8px; color: var(--color-text); }

@@ -13,24 +13,25 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "better-sqlite3": "^12.0.0",
+    "drizzle-orm": "^0.45.4",
     "next": "^15.5.28",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "better-sqlite3": "^12.0.0",
-    "drizzle-orm": "^0.45.4",
+    "sharp": "^0.35.5",
     "zod": "^3.24.0"
   },
   "devDependencies": {
-    "typescript": "^5.8.0",
-    "tsx": "^4.19.0",
-    "tailwindcss": "^4.3.3",
-    "postcss": "^8.5.30",
-    "autoprefixer": "^10.4.0",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/better-sqlite3": "^7.6.0",
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
-    "@types/better-sqlite3": "^7.6.0",
-    "@tailwindcss/postcss": "^4.3.3"
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.5.30",
+    "tailwindcss": "^4.3.3",
+    "tsx": "^4.19.0",
+    "typescript": "^5.8.0"
   },
   "overrides": {
     "postcss": "$postcss"

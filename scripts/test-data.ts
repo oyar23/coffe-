@@ -12,6 +12,13 @@ async function main(){
  migrate();migrate();
  const p=await import('../lib/data/products');
  const s=await import('../lib/data/settings');
+ const display=await import('../lib/data/menu-display');
+ assert.deepEqual(display.getMenuDisplay(),{showProductImages:false});
+ assert.deepEqual(display.setMenuDisplay({showProductImages:true}),{showProductImages:true});
+ assert.equal(display.getMenuDisplay().showProductImages,true);
+ assert.throws(()=>display.setMenuDisplay({showProductImages:'yes'} as never));
+ sqlite.prepare('UPDATE settings SET value=? WHERE key=?').run('malformed','menu_display');
+ assert.deepEqual(display.getMenuDisplay(),{showProductImages:false});
  assert.deepEqual(s.getTheme(),s.defaultTheme);assert.deepEqual(s.getBackground(),s.defaultBackground);
  assert.equal(p.listProducts().length,0);
  const input={nombre:'Latte',categoria:'Cafés',precio:4500,imagen:'/placeholder.svg'};

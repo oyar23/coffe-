@@ -1,0 +1,26 @@
+{
+  "admin-mobile": {
+    "width": 375,
+    "scores": {
+      "performance": 99,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "consoleErrors": 0,
+    "fetchTime": "2026-10-15T20:14:43.034Z",
+    "lighthouseVersion": "12.8.2"
+  },
+  "form-desktop": {
+    "width": 1280,
+    "scores": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "consoleErrors": 0,
+    "fetchTime": "2026-10-15T20:15:33.772Z",
+    "lighthouseVersion": "12.8.2"
+  }
+}

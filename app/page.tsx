@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { getMenuDisplay } from '@/lib/data/menu-display';
 import { listByCategory } from '@/lib/data/products';
 import { getBackground, getTheme } from '@/lib/data/settings';
 import Background from '@/components/background/Background';
@@ -14,6 +15,7 @@ export const metadata = { icons: { icon: '/placeholder.svg' } };
 export default function MenuPage() {
   const categories = listByCategory().filter(group => group.productos.length > 0);
   const theme = getTheme();
+  const display = getMenuDisplay();
   const sections = categories.map((group, index) => ({ ...group, id: `categoria-${index + 1}` }));
 
   return (
@@ -46,7 +48,7 @@ export default function MenuPage() {
         ) : sections.map(({ categoria, productos, id }, index) => (
           <section key={categoria} id={id} aria-labelledby={`${id}-titulo`} className={styles.section}>
             <div className={styles.sectionHeader}><div className={styles.sectionTitle}><span className={styles.sectionNumber}>{String(index + 1).padStart(2, '0')}</span><h2 id={`${id}-titulo`}>{categoria}</h2></div><span className={styles.sectionCount}>{productos.length} opciones</span></div>
-            <div className={styles.grid}>{productos.map(product => <Reveal key={product.id}><ProductCard product={product} /></Reveal>)}</div>
+            <div className={styles.grid}>{productos.map(product => <Reveal key={product.id}><ProductCard product={product} showImage={display.showProductImages} /></Reveal>)}</div>
           </section>
         ))}
       </main>
