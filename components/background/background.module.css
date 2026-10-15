@@ -22,6 +22,20 @@
   animation: imageDrift 26s ease-in-out infinite alternate;
   will-change: transform;
 }
+.botanicalArt {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+@media (min-aspect-ratio: 1/1) {
+  .botanicalArt {
+    left: auto;
+    width: 79svh;
+    background-position: right center;
+    mask-image: linear-gradient(to right, transparent, #000 16%);
+  }
+}
 @keyframes imageDrift {
   from { transform: translate3d(-.5%, -.4%, 0) scale(1.02); }
   to { transform: translate3d(.5%, .4%, 0) scale(1.06); }

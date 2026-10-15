@@ -3,7 +3,7 @@
   --menu-muted: color-mix(in srgb, var(--color-text) 76%, var(--color-secondary));
   position: relative; isolation: isolate; min-height: 100vh; color: var(--color-text); font-family: var(--font-main);
 }
-.backdropVeil { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: color-mix(in srgb, var(--color-secondary) 94%, transparent); }
+.backdropVeil { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: color-mix(in srgb, var(--color-secondary) 12%, transparent); }
 .menu * { box-sizing: border-box; }
 .skipLink { position: fixed; top: -100px; left: 16px; z-index: 10; padding: 14px 20px; background: var(--color-secondary); color: var(--color-text); }
 .skipLink:focus { top: 12px; }

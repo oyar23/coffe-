@@ -17,8 +17,8 @@ const presets = [
     },
     background: {
       type: "image",
-      src: "/backgrounds/default.svg",
-      overlay: 0.25,
+      src: "/backgrounds/botanico-cafe.webp",
+      overlay: 0,
     },
   },
   {

@@ -45,7 +45,9 @@ ffmpeg -i original.mov -vf "scale=1280:720:force_original_aspect_ratio=decrease,
 
 Los fondos de tipo imagen ahora tienen un movimiento suave de zoom y desplazamiento, en un ciclo CSS de 26 segundos. `ImageBackground.tsx` pausa la animación si la pestaña está oculta y la desactiva con `prefers-reduced-motion`. No se genera un MP4: la animación forma parte de la web. No afecta al poster estático de los fondos de video.
 
-El diseño compartido mediante la biblioteca de ChatGPT está pendiente de recibir como archivo: el enlace enviado requiere iniciar sesión y no permitió descargarlo. Para incluirlo en el repositorio y futuro deploy, guardarlo en `public/backgrounds/` y seleccionarlo como imagen en Marca. Si se sube desde el admin queda en `public/uploads/`, que está excluido de Git, por lo que se debe transferir por separado al hosting junto con la base local. La configuración activa se guarda en SQLite; no basta con copiar solo los archivos de código.
+El fondo botánico recibido se incluye en `public/backgrounds/botanico-cafe.webp`: únicamente el panel derecho de la referencia, sin la división blanca, 763 × 1024 px y aproximadamente 26 KB. Es el fondo por defecto y el preset Clásico también lo utiliza. En mobile cubre la pantalla; en landscape se presenta a la derecha con una transición suave hacia el color del tema, para conservar taza y hojas. La animación CSS ya va incluida en el proyecto: para el deploy no hace falta el PNG doble original ni generar un video.
+
+El WebP está versionado con el código. Si luego se suben otros fondos desde el admin quedan en `public/uploads/`, que está excluido de Git; transferir esos uploads junto con la base local al hosting. La configuración activa de marca se guarda en SQLite.
 
 Los presets aplican tema y fondo juntos al borrador y conservan el logo. El iframe recibe el borrador por postMessage del mismo origen; no cambia SQLite. Guardar llama a `setTheme`, `setBackground` y `revalidatePath('/')`, y recarga el iframe. En mobile las pestañas permiten alternar entre edición y preview; en desktop se muestran lado a lado. Los uploads usan `/api/upload` para el logo si existe; ante 404 usan el endpoint propio. Fondos y poster se suben al endpoint propio, con validación específica. Las rutas de media sirven archivos agregados después del build y soportan rangos de video.
 
@@ -70,4 +72,6 @@ Chequeo manual pendiente si no hay navegador conectado: abrir DevTools, viewport
 
 ## Integración con F1
 
-`components/menu/menu.module.css` define `.backdropVeil` como un velo del color secundario al 94%, pintado encima del fondo. Esto atenúa fuertemente los fondos y no puede corregirse desde F3 sin modificar el alcance autorizado. F4 debe revisar esa opacidad para que las campañas destaquen manteniendo legibilidad. El overlay configurable de F3 se aplica siempre independientemente de ese velo.
+`components/menu/menu.module.css` aplica un velo del color secundario al 12% para que se vea el diseño botánico. Las tarjetas y la navegación conservan superficies opacas para facilitar la lectura. El overlay configurable de F3 se aplica además de ese velo; el fondo botánico se activa con overlay 0.
+
+Verificación del fondo botánico: `npm run typecheck` aprobado; recurso WebP y carta con 24 productos responden HTTP 200; Lighthouse Accessibility 100/100 a 375 px y 1280 px. El movimiento respeta la preferencia de reducir animación y se pausa al ocultar la pestaña.
